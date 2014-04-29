@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{Title}</title>
+<meta name="description" content="{MetaDescription}">
+<meta name="keywords" content="">
+<meta name="image:logo" content=""/>
+<meta name="image:image slide1" content=""/>
+<meta name="image:image slide2" content=""/>
+<meta name="image:image slide3" content=""/>
+<meta name="image:image slide4" content=""/>
+<meta name="image:image slide5" content=""/>
+<meta name="text:copyright" content=""/>
+<style type="text/css">
+/* reset css */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-style:normal;
+	font-weight: normal;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+html{
+    overflow-y: scroll;
+}
+
+a{
+	text-decoration: none;
+}
+
+input, textarea,{
+	margin: 0;
+	padding: 0;
+}
+
+ol, ul{
+    list-style:none;
+}
+
+table{
+    border-collapse: collapse; 
+    border-spacing:0;
+}
+
+.both{
+	clear:both;
+}
+/* end reset css */
+
+body{
+	"ヒラギノ明朝 ProN W6",
+	"HiraMinProN-W6",
+	"HG明朝E",
+	"ＭＳ Ｐ明朝",
+	"MS PMincho",
+	"MS 明朝",
+	serif;
+	font-size: 14px;
+	text-align:justify;  
+	text-justify: inter-ideograph;  
+}
+
+.wrapper{
+	width: 100%;
+}
+
+.logo img{
+	width: 200px;
+	height: auto;
+}
+
+.side{
+	width: 250px;
+	height: 100%;
+	float: left;
+	position: fixed;
+	margin: 50px 0px 0px 50px;
+	letter-spacing: 0.1em;
+}
+
+.side-single{
+	width: 250px;
+	height: 100%;
+	float: left;
+	position: fixed;
+	margin: 50px 0px 0px 50px;
+	letter-spacing: 0.1em;
+}
+
+nav ul li{
+	font-size: 14px;
+	margin: 15px 0 15px 0;
+}
+
+nav ul li a{
+	color: black;
+}
+
+nav ul li a:hover{
+	color: #BBBBBB;
+}
+
+small{
+	font-size: 11px;
+}
+
+.main{
+	margin: 0 0 0 300px;
+}
+
+.main-single{
+	padding: 50px 0 0 0;
+	width: 700px;
+}
+
+#top-image{
+	position:fixed;
+	height: 100%;
+}
+
+#top-image img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	min-height: 100%;
+}
+
+.post-title{
+	font-size: 24px;
+	margin: 0 0 50px 0;
+}
+
+.date{
+	margin: 0 0 15px 0;
+	text-align: right;
+	font-size: 12px;
+}
+
+.tag-page{
+	padding: 50px 0 35px 0;
+	width: 700px;
+	border-bottom: 1px dotted black;
+}
+
+.tag-page-post-title{
+	font-size: 24px;
+	margin: 0 0 25px 0;
+}
+
+.tag-page-post-title a{
+	color: black;
+}
+
+.tag-page-post-title a:hover{
+	color: #BBBBBB;
+}
+
+.pagenation{
+	margin: 30px 0 30px 0;
+	text-align: center;
+	width: 700px;
+}
+
+</style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script type="text/javascript">
+$.fn.autoChange = function(config) {
+   var options = $.extend({
+      effect  : 'fade',
+      type    : 'repaet',
+      timeout : 5000,
+      speed   : 'slow'
+   }, config);
+
+   return this.each(function() {
+      var current = 0;
+      var next = 1;
+      var element = $(this).children();
+      $(element).hide();
+      $(element[0]).show();
+      var change = function(){
+         if (options.effect == 'fade') {
+            $(element[current]).fadeOut(options.speed);
+            $(element[next]).fadeIn(options.speed);
+         } else if  (options.effect == 'slide') {
+            $(element[current]).slideUp(options.speed);
+            $(element[next]).slideDown(options.speed);
+         }
+         if (options.type == 'repeat') {
+            if ((next + 1) < element.length) {
+                current = next;
+                next++;
+            } else {
+                current = element.length - 1;
+                next = 0;
+            }
+         }
+         if (options.type == 'stop') {
+            if ((next + 1) < element.length) {
+                current = next;
+                next++;
+            } else {
+                return;
+            }
+         }
+      };
+      var timer = setInterval(function(){change();}, options.timeout);
+   });
+};
+
+$(function() {
+   $('#top-image').autoChange({effect : 'fade', type : 'repeat', timeout: 5500, speed : 2500});
+});
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+	<article class="{block:IndexPage}side{/block:IndexPage}{block:PermalinkPage}{block:Posts}side-single{/block:Posts}{/block:PermalinkPage}">
+		<header>
+			<h1 class="logo"><a href="/"><img src="{image:logo}"></a></h1>
+		</header>
+		<nav>
+			<ul>
+				{block:HasPages}
+				{block:Pages}
+		        <li><a href="{URL}">{Label}</a></li>
+		        {/block:Pages}
+		        {/block:HasPages}
+		        <li><a href="/tagged/blog/">blog</a></li>
+		        <li><a href="/archive/">archive</a></li>
+		        <li><small>&copy;{text:copyright}</small></li>
+			</ul>
+		</nav>
+	</article>
+	
+	<article class="main">    
+    
+	<!-- index page -->
+	{block:IndexPage}
+		{block:TagPage}<!--{/block:TagPage}
+	    <div id="top-image">
+			<img src="{image:image slide1}">
+			<img src="{image:image slide2}">
+			<img src="{image:image slide3}">
+			<img src="{image:image slide4}">
+			<img src="{image:image slide5}">
+		</div>
+		{block:TagPage}-->{/block:TagPage}
+	{block:IndexPage}
+
+	
+	<!-- permalink page-->
+	{block:Posts}
+	{block:PermalinkPage}
+	{block:Text}
+		<div class="main-single">
+		<h2 class="post-title">{block:PostTitle}{PostTitle}{/block:PostTitle}</h2>
+		{block:Date}
+		<div class="date">{DayOfMonth}{DayOfMonthSuffix}&nbsp;{Month}&nbsp;{Year}</div>
+		{/block:Date}
+		<section>{Body}</section>
+		</div>
+	{/block:Text}
+	{/block:PermalinkPage}
+	{/block:Posts}
+	
+	<!-- tag page -->
+	{block:TagPage}
+	{block:Posts}
+	{block:Text}
+		<div class="tag-page">
+		<h2 class="tag-page-post-title"><a href="{Permalink}">{block:Title}{Title}{/block:Title}</a></h2>
+		{block:Date}
+		<div class="date">{DayOfMonth}{DayOfMonthSuffix}&nbsp;{Month}&nbsp;{Year}</div>
+		{/block:Date}
+		<section>{Body}</section>
+		</div>
+	{/block:Text}
+	{/block:Posts}
+	
+	<div class="pagenation">
+    {block:Pagination}
+    {block:PreviousPage}
+    <a href="{PreviousPage}">Prev</a>
+    {/block:PreviousPage}
+
+    {block:JumpPagination length="5"}
+    	{block:CurrentPage}
+		<span class="current_page">{PageNumber}</span>
+        {/block:CurrentPage}
+        {block:JumpPage}
+        <a class="jump_page" href="{URL}">{PageNumber}</a>
+        {/block:JumpPage}
+    {/block:JumpPagination}
+
+    {block:NextPage}
+        <a href="{NextPage}">Next</a>
+    {/block:NextPage}
+    {/block:Pagination}
+	</div>
+	
+	{/block:TagPage}
+	</article>
+</div>
+</body>
+</html>

@@ -251,12 +251,12 @@ $(function() {
 			<ul>
 				{block:HasPages}
 				{block:Pages}
-		        <li><a href="{URL}">{Label}</a></li>
-		        {/block:Pages}
-		        {/block:HasPages}
-		        <li><a href="/tagged/blog/">blog</a></li>
-		        <li><a href="/archive/">archive</a></li>
-		        <li><small>&copy;{text:copyright}</small></li>
+				<li><a href="{URL}">{Label}</a></li>
+				{/block:Pages}
+				{/block:HasPages}
+				<li><a href="/tagged/blog/">blog</a></li>
+				<li><a href="/archive/">archive</a></li>
+				<li><small>&copy;{text:copyright}</small></li>
 			</ul>
 		</nav>
 	</article>
@@ -266,7 +266,7 @@ $(function() {
 	<!-- index page -->
 	{block:IndexPage}
 		{block:TagPage}<!--{/block:TagPage}
-	    <div id="top-image">
+		<div id="top-image">
 			<img src="{image:image slide1}">
 			<img src="{image:image slide2}">
 			<img src="{image:image slide3}">
@@ -307,24 +307,24 @@ $(function() {
 	{/block:Posts}
 	
 	<div class="pagenation">
-    {block:Pagination}
-    {block:PreviousPage}
-    <a href="{PreviousPage}">Prev</a>
-    {/block:PreviousPage}
-
-    {block:JumpPagination length="5"}
-    	{block:CurrentPage}
+	{block:Pagination}
+	{block:PreviousPage}
+	<a href="{PreviousPage}">Prev</a>
+	{/block:PreviousPage}
+	
+	{block:JumpPagination length="5"}
+		{block:CurrentPage}
 		<span class="current_page">{PageNumber}</span>
-        {/block:CurrentPage}
-        {block:JumpPage}
-        <a class="jump_page" href="{URL}">{PageNumber}</a>
-        {/block:JumpPage}
-    {/block:JumpPagination}
-
-    {block:NextPage}
-        <a href="{NextPage}">Next</a>
-    {/block:NextPage}
-    {/block:Pagination}
+		{/block:CurrentPage}
+		{block:JumpPage}
+		<a class="jump_page" href="{URL}">{PageNumber}</a>
+		{/block:JumpPage}
+	{/block:JumpPagination}
+	
+	{block:NextPage}
+		<a href="{NextPage}">Next</a>
+	{/block:NextPage}
+	{/block:Pagination}
 	</div>
 	
 	{/block:TagPage}
